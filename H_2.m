@@ -10,13 +10,26 @@ function res = H_2(l, ii, jj)
 global k; % Some positive constant
 
 if l ~= 1 && l ~= 2
-    error(['WRONG INDEX IN H1_2(l, ii, jj, s)' newline 'l = ', num2str(l)]);
+    error(['WRONG INDEX IN H_2(l, ii, jj, s)' newline 'l = ', num2str(l)]);
 end
 
-if ii == jj
-    res = 0;
+global x_derivative_on_1;
+global y_derivative_on_1;
+global x_derivative_on_2;
+global y_derivative_on_2;
+
+if l == 1
+    dx = x_derivative_on_1;
+    dy = y_derivative_on_1;
+    
+    line = sqrt(dx(ii).^2 + dy(ii).^2);
 else
-    res = - log(exp(1) * k^2 / 4) / 2 - eulergamma;
+    dx = x_derivative_on_2;
+    dy = y_derivative_on_2;
+    
+    line = sqrt(dx(jj).^2 + dy(jj).^2);
 end
+    
+res = - log(exp(1) * k^2 * line^2 / 4) / 2 - double(eulergamma);
 
 end

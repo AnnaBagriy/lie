@@ -1,15 +1,13 @@
-function res = R(k, m)
+function res = R(jj, k, m)
 % Calculates weight function
 % for Nystrom method
 
+global s;
 
-jj = 1:m - 1;
-%r = cos(jj .* (s(ii) - s(k))) ./ jj;
-r = cos(jj .* pi .* k / m) ./ jj;
+ii = 1:m - 1;
+r = cos(ii .* (s(k) - s(jj))) ./ ii;
 
-%res = - (1 + 2 * sum(r) + (cos(m * (s(ii) - s(k)))) / m) / (2 * m);
-res = - (0.5 + (-1)^k / (2 * m) + sum(r)) / m;
-%res = - (sum(r) + (cos(m * (s(ii) - s(k)))) / (2 * m)) / (m);
+res = - (1 + 2 * sum(r) + cos(m * (s(k) - s(jj))) / m) / (2 * m);
 
 end
 

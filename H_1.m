@@ -7,11 +7,11 @@ function res = H_1(l, ii, jj)
 %   jj - index for s-vector
 %   s - vector
 
-global k; % Some positive constant
-
 if l ~= 1 && l ~= 2
-    error(['WRONG INDEX IN H1_1(l, ii, jj, s)' newline 'l = ', num2str(l)]);
+    error(['WRONG INDEX IN H_1(l, ii, jj, s)' newline 'l = ', num2str(l)]);
 end
+
+global k; % Some positive constant
 
 res = - besseli(0, k .* r2(l, l, ii, jj)) / 2;
 

@@ -19,7 +19,7 @@ if l1 == 1
         if t1 == t2
            res = 0; 
         else
-            res = sqrt((x1(t1) - x1(t2))^2 + (y1(t1) - y1(t2))^2);
+           res = sqrt((x1(t1) - x1(t2))^2 + (y1(t1) - y1(t2))^2);
         end
     else
         res = sqrt((x1(t1) - x2(t2))^2 + (y1(t1) - y2(t2))^2);
