@@ -17,8 +17,11 @@ y_derivative_on_1 = matlabFunction(diff(y_vector(1,t),t));
 x_derivative_on_2 = matlabFunction(diff(x_vector(2,t),t));
 y_derivative_on_2 = matlabFunction(diff(y_vector(2,t),t));
 
-k = 2;
-m = 8;
+k = 1;
+m = 2;
+
+y1_out = 4;
+y2_out = 0;
 
 % Init matrix and right vector
 matrix_initialization
@@ -52,8 +55,8 @@ for ii = 1:2 * m
 end
 
 % Find solution in this point
-x1 = -0.5;
-x2 = 0.4;
+x1 = 0;
+x2 = 0.5;
 
 H1 = besselk(0, k .* sqrt((x_vector(1, s) - x1).^2 + (y_vector(1, s) - x2).^2));
 H2 = besselk(0, k .* sqrt((x_vector(2, s) - x1).^2 + (y_vector(2, s) - x2).^2));
@@ -65,9 +68,6 @@ for ii = 1:2 * m
 end
 
 % Exact solution
-y1_out = 4;
-y2_out = 0;
-
 U = @(x1, x2) besselk(0, k .* sqrt((x1 - y1_out).^2 + (x2 - y2_out).^2)) / (2*pi);
 
 U_approx = U_approx / (2 * m);
